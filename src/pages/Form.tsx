@@ -60,7 +60,7 @@ export const Form: React.FC = () => {
   const classes = useStyles();
   const theme = useTheme();
   const expanded = useMediaQuery(theme.breakpoints.up('lg'));
-  const { slug } = useParams();
+  const { slug } = useParams<{ slug: string }>();
   const { onDelete, savedValue, ...formState } = useNoteForm(slug)
   const [tab, setTab] = useState(0);
   const [deleteOpen, setDeleteOpen] = useState(false)
@@ -87,9 +87,9 @@ export const Form: React.FC = () => {
         {(expanded || tab === 0) && (
           <MainPanel>
             <NoteForm
+              {...formState}
               onDelete={() => setDeleteOpen(true)}
               showDelete={Boolean(savedValue?.id)}
-              {...formState}
             />
           </MainPanel>
         )}
