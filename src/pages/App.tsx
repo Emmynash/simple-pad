@@ -2,7 +2,7 @@ import React from "react";
 import { Route, Router, Switch } from "react-router-dom";
 import { ProvideNoteContext, ProvideSideBarContext, ProvideThemeContext } from "hooks";
 import { Layout } from "components";
-import { Home } from "pages";
+import { Home, Form, Note } from "pages";
 import moment from "moment";
 import ReactGA from 'react-ga'
 import { createBrowserHistory } from 'history'
@@ -39,6 +39,9 @@ export const App = () => (
           <Layout>
             <Switch>
               <Route exact path='/' component={Home} />
+              <Route exact path='/create' component={Form} />
+              <Route exact path='/:slug/edit' component={Form} />
+              <Route exact path='/:slug' component={Note} />
             </Switch>
           </Layout>
         </ProvideSideBarContext>
