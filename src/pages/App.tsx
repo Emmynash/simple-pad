@@ -1,6 +1,7 @@
 import React from "react";
 import { Route, Router, Switch } from "react-router-dom";
 import { ProvideNoteContext, ProvideSideBarContext, ProvideThemeContext } from "hooks";
+import { Layout } from "components";
 import { Home } from "pages";
 import moment from "moment";
 import ReactGA from 'react-ga'
@@ -35,9 +36,11 @@ export const App = () => (
     <ProvideNoteContext>
       <ProvideThemeContext>
         <ProvideSideBarContext>
-          <Switch>
-            <Route exact path='/' component={Home} />
-          </Switch>
+          <Layout>
+            <Switch>
+              <Route exact path='/' component={Home} />
+            </Switch>
+          </Layout>
         </ProvideSideBarContext>
       </ProvideThemeContext>
     </ProvideNoteContext>
