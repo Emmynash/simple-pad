@@ -57,7 +57,9 @@ interface Props extends Omit<Partial<OutlinedTextFieldProps>, 'value'> {
   values: userNoteFields,
   saved?: boolean,
   showDelete?: boolean,
-  onDelete?: React.MouseEventHandler<HTMLElement>,
+  onChange: React.ChangeEventHandler<HTMLInputElement>;
+  onBlur: React.FocusEventHandler<HTMLInputElement>;
+  onDelete?: React.MouseEventHandler<HTMLButtonElement>;
   errors: {
     [k in keyof userNoteFields]?: string | null
   }
@@ -65,10 +67,10 @@ interface Props extends Omit<Partial<OutlinedTextFieldProps>, 'value'> {
 
 export const NoteForm: React.FC<Props> = ({
   values,
-  saved,
-  showDelete = false,
   errors,
+  showDelete = false,
   onDelete,
+  saved,
   ...rest
 }) => {
 
