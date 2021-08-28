@@ -27,7 +27,7 @@ export const useNoteForm = (slug: string | undefined) => {
     ...newNote,
     modified: 0
   })
-  const [error, setError] = useState<Errors>({})
+  const [errors, setError] = useState<Errors>({})
   const shouldUpdate = useRef(false)
   const noteId = savedValue?.id;
 
@@ -112,12 +112,12 @@ export const useNoteForm = (slug: string | undefined) => {
     saved = Boolean(changedMode === 0 || savedMode >= changedMode)
 
   return {
+    values,
+    savedValue,
+    errors,
     onChange,
     onBlur,
     onDelete,
     saved,
-    savedValue,
-    values,
-    error
   }
 }
