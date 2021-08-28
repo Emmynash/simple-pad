@@ -1,6 +1,6 @@
-import React, {useRef, useEffect} from 'react';
+import React, { useRef, useEffect } from 'react';
 import Markdown, { MarkdownToJSX } from "markdown-to-jsx";
-import {  useSwipeable } from "react-swipeable";
+import { useSwipeable } from "react-swipeable";
 import hljs from 'highlight.js';
 import {
   makeStyles,
@@ -20,7 +20,7 @@ import {
 import 'highlight.js/styles/atom-one-dark.css';
 import { unSaveNoteField } from 'db';
 
-const useStyles = makeStyles((theme) => 
+const useStyles = makeStyles((theme) =>
   createStyles({
     title: { marginBottom: theme.spacing(4) },
     content: {
@@ -38,7 +38,7 @@ const useStyles = makeStyles((theme) =>
         }
       },
       '& ol, ul': {
-         ...theme.typography.body1,
+        ...theme.typography.body1,
       },
       '& dl': {
         margin: theme.spacing(),
@@ -102,7 +102,7 @@ const options = {
     h6: (props: any) => (
       <Typography variant='body1' component='p' gutterBottom {...props} />
     ),
-     input: ({type,  ...rest } : {type: any}) => <Checkbox {...rest} />,
+    input: ({ type, ...rest }: { type: any }) => <Checkbox {...rest} />,
     // code: (props: any) =>
     // {
     //   useSwipeable({
@@ -127,7 +127,7 @@ export const RenderedNote: React.FC<props> = ({ note }) => {
   const ref = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
-    ref.current?.querySelectorAll('pre code').forEach(block => hljs.highlightBlock(block as HTMLElement));
+    ref.current?.querySelectorAll('pre code').forEach(el => hljs.highlightElement(el as HTMLElement));
   }, [note.md])
 
   return (
