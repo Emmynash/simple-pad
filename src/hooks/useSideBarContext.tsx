@@ -3,7 +3,7 @@ import { useMediaQuery, useTheme } from "@material-ui/core";
 import { useLocation } from "react-router-dom";
 
 export interface ISideBarContext {
-  expanded: Boolean,
+  expanded: boolean,
   toggleExpanded(): void,
   setExpanded(expanded: Boolean): void
 }
