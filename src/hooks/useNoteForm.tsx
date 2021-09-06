@@ -37,14 +37,14 @@ export const useNoteForm = (slug: string | undefined) => {
       ...prev,
       modified: Date.now(),
       [e.target.name]:
-        e.target.value === 'tags'
-          ? e.target.value.split(' ') : e.target.value
+        e.target.name === 'tags'
+          ? e.target.value.split(" ") : e.target.value
     }))
   }, [])
 
   const onBlur: React.FocusEventHandler<HTMLInputElement> = useCallback(
     async (e) => {
-      if (e.target.value === 'title' && !noteId) {
+      if (e.target.name === 'title' && !noteId) {
         setError({});
         try {
           const res = await createNote(values);
