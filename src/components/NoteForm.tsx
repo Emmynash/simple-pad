@@ -32,9 +32,9 @@ const useStyles = makeStyles((theme) =>
       top: 0
     },
     delete: {
-      backgroundColor: theme.palette.error.main,
+      backgroundColor: theme.palette.grey.A400,
       color: theme.palette.error.main,
-      width: 20
+      width: 150
     },
     "@keyframes spin": {
       from: {
@@ -95,7 +95,6 @@ export const NoteForm: React.FC<Props> = ({
       ) : (
         <LoadingAdornment />
       )
-
   return (
     <div className={classes.root}>
       <NoteTextField
@@ -103,7 +102,7 @@ export const NoteForm: React.FC<Props> = ({
         label='Title'
         value={values.title}
         error={!!errors.title}
-        helperText={!!errors.title}
+        helperText={errors.title}
         inputProps={{ endAdornment: Adorn }}
         {...rest}
       />
@@ -114,7 +113,7 @@ export const NoteForm: React.FC<Props> = ({
         rows='20'
         value={values.md}
         error={!!errors.md}
-        helperText={!!errors.md ?? "Support github flavoured markdown"}
+        helperText={errors.md ?? "Support github flavoured markdown"}
         inputProps={{
           classes: {
             input: classes.textarea
@@ -125,9 +124,9 @@ export const NoteForm: React.FC<Props> = ({
       <NoteTextField
         name='tags'
         label='Tags'
-        value={values.tags.join(' ')}
+        value={values.tags.join(" ")}
         error={!!errors.tags}
-        helperText={!!errors.md ?? "Separated by spaces"}
+        helperText={errors.tags ?? "Separated by spaces"}
         {...rest}
       />
       {showDelete && (
