@@ -7,15 +7,15 @@ import { useSwipeable } from "react-swipeable";
 const useStyles = makeStyles((theme) =>
   createStyles({
     container: {
-      flex: expanded => expanded ? '0 0 350px' : '0 0 auto',
+      flex: '0 0 auto',
       overflowY: 'auto',
       zIndex: 1000,
       height: '100%',
       [theme.breakpoints.down('sm')]: {
         position: 'absolute',
         transition: 'left 0.5s',
-        maxWidth: '350px',
-        width: '100%',
+        maxWidth: (expanded) => expanded ? '350px' : 'auto',
+        height: '100%',
         left: expanded => expanded ? '0px' : '-350px'
       }
     },
