@@ -20,8 +20,9 @@ export const Layout: React.FC = ({ children }) => {
       <CssBaseline />
       <div className={classes.root}>
         <SideMenu />
+        {children}
       </div>
-      {children}
+
     </>
   )
 }
