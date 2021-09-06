@@ -1,7 +1,6 @@
 import React from "react";
 import clsx from 'clsx'
 import { makeStyles, createStyles } from "@material-ui/core";
-import { IntrinsicElements } from "react-markdown/src/ast-to-react";
 
 const useStyles = makeStyles((theme) =>
   createStyles({
@@ -15,7 +14,7 @@ const useStyles = makeStyles((theme) =>
       padding: theme.spacing(4)
     }
   }))
-interface props extends Partial<IntrinsicElements['div']>{
+interface props extends Partial<JSX.IntrinsicElements['div']> {
   className?: string
 }
 export const MainPanel = React.forwardRef<HTMLDivElement, props>(
@@ -26,5 +25,5 @@ export const MainPanel = React.forwardRef<HTMLDivElement, props>(
         {children}
       </div>
     )
-    }
-  )
+  }
+)
