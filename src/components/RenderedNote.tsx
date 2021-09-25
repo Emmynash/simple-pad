@@ -1,6 +1,5 @@
 import React, { useRef, useEffect } from 'react';
-import Markdown, { MarkdownToJSX } from "markdown-to-jsx";
-import { useSwipeable } from "react-swipeable";
+import Markdown from "markdown-to-jsx";
 import hljs from 'highlight.js';
 import {
   makeStyles,
