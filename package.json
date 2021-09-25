@@ -34,7 +34,7 @@
     "react-scripts": "4.0.3",
     "react-swipeable": "^6.1.2",
     "slugify": "^1.6.0",
-    "ts-jest": "^27.0.3",
+    "ts-jest": "^26.1.0",
     "typeface-mclaren": "^1.1.13",
     "typeface-roboto": "^1.1.13",
     "typescript": "^4.1.2",
@@ -48,8 +48,7 @@
   },
   "eslintConfig": {
     "extends": [
-      "react-app",
-      "react-app/jest"
+      "react-app"
     ]
   },
   "browserslist": {
@@ -63,5 +62,26 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "jest": {
+    "coveragePathIgnorePatterns": [
+      "/node_modules/",
+      "serviceWorker.ts",
+      "react-app-env.d.ts",
+      "src/index.tsx",
+      "src/test-utils.tsx",
+      "src/pages/App.tsx",
+      "src/db/initialNotes.ts",
+      "src/components/.*index.ts",
+      "src/hooks/index.ts",
+      "src/pages/index.ts",
+      "src/db/index.ts"
+    ],
+    "coverageThreshold": {
+      "global": {
+        "branches": 100,
+        "lines": 90
+      }
+    }
   }
 }
